@@ -7,9 +7,9 @@
     - Change boot disk: Ubuntu 20.04 LTS, Size: 40 GB
 3. create service account: <br>
     IAM & Admin &rarr; service accounts &rarr; create service account <br>
-    apply the following roles: <br>
-        - Viewer <br>
-        - Storage Admin <br>
-        - Storage Object Admin <br>
-        - BigQuery Admin <br>
+    apply the following roles:
+    - Viewer
+    - Storage Admin 
+    - Storage Object Admin 
+    - BigQuery Admin
     generate key & download to your local machine
