@@ -17,4 +17,4 @@
     in terminal: `ssh-keygen -t rsa -f ~/.ssh/capstone -C <USER> -b 2048` <br>
     cat out the public key: `cat .ssh/capstone.pub` <br>
     copy output, go to VM instance on Google Cloud & add ssh key under Metadata
-    
+5. `git clone https://github.com/PandaKata/dezoomcamp-project.git`
