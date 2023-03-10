@@ -4,6 +4,7 @@ locals {
 
 variable "project" {
   description = "capstone-project-379718"
+  type = string
 }
 
 variable "region" {
@@ -23,8 +24,11 @@ variable "BQ_DATASET" {
   default = "covid_data_all"
 }
 
-variable "TABLE_NAME" {
-  description = "BigQuery Table that raw data (from GCS) will be written to"
+
+variable "zone" {
+  description = "Region for VM"
   type = string
-  default = "covid_data"
+  default = "europe-west1-b"
 }
+
+
