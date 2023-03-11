@@ -20,3 +20,4 @@
 5. `git clone https://github.com/PandaKata/dezoomcamp-project.git`
 6. do terraform
 7. create virtual env with requirements `conda create -n capstone python=3.10` `pip install -r requirements.txt`
+8. prefect cloud login OR local alternative
