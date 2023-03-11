@@ -21,4 +21,4 @@
 6. do terraform
 7. create virtual env with requirements `conda create -n capstone python=3.10` `pip install -r requirements.txt`
 8. prefect cloud login OR local alternative
-9. `prefect block register -m prefect_gcp`
+9. `prefect block register -m prefect_gcp` add GCS Bucket
