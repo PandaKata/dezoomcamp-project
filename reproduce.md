@@ -19,4 +19,4 @@
     copy output, go to VM instance on Google Cloud & add ssh key under Metadata
 5. `git clone https://github.com/PandaKata/dezoomcamp-project.git`
 6. do terraform
-7. create virtual env with requirements
+7. create virtual env with requirements `conda create -n capstone python=3.10`
