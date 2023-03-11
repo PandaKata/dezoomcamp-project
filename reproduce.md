@@ -18,3 +18,5 @@
     cat out the public key: `cat .ssh/capstone.pub` <br>
     copy output, go to VM instance on Google Cloud & add ssh key under Metadata
 5. `git clone https://github.com/PandaKata/dezoomcamp-project.git`
+6. do terraform
+7. create virtual env with requirements
