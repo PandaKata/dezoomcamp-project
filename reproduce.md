@@ -23,3 +23,5 @@
 8. prefect cloud login OR local alternative
 9. `prefect block register -m prefect_gcp` add GCS Bucket
 10. `prefect deployment build src/web_to_gcs.py:etl_web_to_gcs -n 'covid_data_to_bucket' --cron "0 6 * * *" -a`
+11. `prefect agent start -q 'default`
+12. 
