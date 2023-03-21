@@ -41,4 +41,5 @@
 12. `prefect deployment build src/web_to_gcs.py:etl_web_to_gcs -n 'covid_data_to_bucket' --cron "0 6 * * *" -a`
 13. `prefect deployment build gcs_to_bq.py:etl_gcs_to_bq -n 'covid_data_to_dwh' --cron "15 6 * * *" -a` # creates deployment yaml file and schedule it via CRON daily at 6.15 CET 
 14. `prefect agent start -q 'default'`
-15. 
+15. setup dbt cloud with BQ: https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md
+16. 
