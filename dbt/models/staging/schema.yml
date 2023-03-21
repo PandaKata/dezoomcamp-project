@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    database: capstone-project-379718
+    schema: capstone_covid_data
+
+    tables:
+      - name: covid_table
