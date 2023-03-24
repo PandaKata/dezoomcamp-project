@@ -1,5 +1,5 @@
 {{config(materialized='view') }}
-
+---WHAT COLUMNS DO I NEED
 select 
 
     -- identifiers
@@ -19,11 +19,11 @@ select
     cast(new_deaths_smoothed as float64) as new_deaths_smoothed,
     cast(total_cases_per_million as float64) as total_cases_per_million,
     cast(new_cases_per_million as float64) as new_cases_per_million,
-    cast(new_deaths_smoothed_per_million as float64) as new_deaths_smoothed_per_million,
     cast(total_deaths_per_million as float64) as total_deaths_per_million,
     cast(new_deaths_per_million as float64) as new_deaths_per_million,
+    cast(new_deaths_smoothed_per_million as float64) as new_deaths_smoothed_per_million,
+    cast(reproduction_rate as float64) as reproduction_rate,
     cast()
-
 
 
 from {{ source('staging', 'covid_table') }}
