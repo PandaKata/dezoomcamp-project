@@ -19,7 +19,7 @@ select
 
     -- identifiers
     {{ dbt_utils.surrogate_key(['location', 'date']) }} as covid_id,
-    cast(iso_code as string) as country_code,
+    cast(iso_code as string) as continent_code,
     cast(continent as string) as continent,
     cast(location as string) as country,
 
@@ -60,4 +60,8 @@ select
 
 from covid_data
 
---limit 100
+{% if var('is_test_run', default=true) %}
+
+  limit 100
+
+{% endif %}
