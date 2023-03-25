@@ -152,6 +152,11 @@ models:
         the rest is the same and would produce errors/warnings when building the model for the entire dataset
       columns:
         - name: continent
+          tests:
+          - accepted_values:
+              name: only_europe_allowed
+              values: ['Europe']
+              severity: warn
         - name: location
           tests:
           - accepted_values:
