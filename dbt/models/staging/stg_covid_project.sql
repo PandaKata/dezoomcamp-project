@@ -1,4 +1,14 @@
-{{config(materialized='view') }}
+{{ config(
+    materialized='view',
+    partition_by={
+      "field": "date",
+      "data_type": "timestamp",
+      "granularity": "day"
+    }
+)}}
+
+
+
 ---WHAT COLUMNS DO I NEED
 select 
 
