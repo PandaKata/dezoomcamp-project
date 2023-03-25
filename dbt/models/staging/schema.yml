@@ -152,7 +152,7 @@ models:
         the rest is the same and would produce errors/warnings when building the model for the entire dataset
       columns:
         - name: continent
-        - name: country
+        - name: location
           tests:
           - accepted_values:
               name: only_germany_allowed

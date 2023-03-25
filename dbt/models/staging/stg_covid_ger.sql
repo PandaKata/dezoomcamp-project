@@ -20,7 +20,7 @@ select
     -- identifiers
     cast(iso_code as string) as country_code,
     cast(continent as string) as continent,
-    cast(location as string) as germany,
+    cast(location as string) as location,
 
     --date
     cast(date as timestamp) as date,
