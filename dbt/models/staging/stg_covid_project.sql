@@ -18,7 +18,7 @@ select
     cast(location as string) as  location,
 
     --date
-    cast(date as datetime) as date,
+    cast(date as timestamp) as date,
     
     -- numbers
     cast(total_cases as float64) as total_cases,
