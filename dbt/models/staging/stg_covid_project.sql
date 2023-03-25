@@ -10,7 +10,6 @@
 with covid_data as
 (
   select *,
-    --row_number() over(partition by location, date) as rn
   from {{ source('staging','covid_table') }}
 )
 
@@ -19,6 +18,7 @@ with covid_data as
 select 
 
     -- identifiers
+    {{ dbt_utils.surrogate_key(['location', 'date']) }} as covid_id,
     cast(iso_code as string) as country_code,
     cast(continent as string) as continent,
     cast(location as string) as country,
@@ -59,6 +59,5 @@ select
 
 
 from covid_data
---where rn=1
 
 --limit 100
