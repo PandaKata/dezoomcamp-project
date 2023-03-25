@@ -15,6 +15,10 @@ models:
     - name: stg_covid_project
       description: table with covid 19 data with the following carefully selected columns
       columns:
+        - name: covid_id
+          description: >
+            identifier  
+            creates unique key for model
         - name: country_code
           description: ISO 3166-1 alpha-3 – three-letter country codes. Note that OWID-defined regions (e.g. continents like 'Europe') contain prefix 'OWID_'.
         - name: continent
