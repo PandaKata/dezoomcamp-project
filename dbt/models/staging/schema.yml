@@ -7,3 +7,50 @@ sources:
 
     tables:
       - name: covid_table
+
+
+
+models:
+
+    - name: stg_covid_project
+      description: table with covid 19 data with the following carefully selected columns
+      columns:
+        - name: country_code
+          description: ISO 3166-1 alpha-3 – three-letter country codes. Note that OWID-defined regions (e.g. continents like 'Europe') contain prefix 'OWID_'.
+        - name: continent
+        - name: country
+          tests: 
+            - unique:
+                config:
+                  severity: error
+                  error_if: ">1000"
+                  warn_if: ">10"  
+        - name: total_cases
+          description: Total confirmed cases of COVID-19. Counts can include probable cases, where reported.
+          tests: 
+            - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: new_cases
+          description: >
+            New confirmed cases of COVID-19. Counts can include probable cases, where reported. 
+            In rare cases where our source reports a negative daily change due to a data correction, we set this metric to NA.
+        - name: total_deaths
+          description: Total deaths attributed to COVID-19. Counts can include probable deaths, where reported.
+          tests: 
+            - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: new_deaths
+          description: >
+            New deaths attributed to COVID-19. Counts can include probable deaths, where reported. 
+            In rare cases where our source reports a negative daily change due to a data correction, we set this metric to NA.
+        - name: icu_patients
+          description: Number of COVID-19 patients in intensive care units (ICUs) on a given day
+        - name: hosp_patients
+          description: Number of COVID-19 patients in hospital on a given day
+        - name: total_tests
+          tests: 
+            - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn

@@ -10,7 +10,8 @@
 with covid_data as
 (
   select *,
-  from {{ source('staging', 'covid_table') }}
+    --row_number() over(partition by location, date) as rn
+  from {{ source('staging','covid_table') }}
 )
 
 
@@ -20,7 +21,7 @@ select
     -- identifiers
     cast(iso_code as string) as country_code,
     cast(continent as string) as continent,
-    cast(location as string) as  location,
+    cast(location as string) as country,
 
     --date
     cast(date as timestamp) as date,
@@ -59,5 +60,6 @@ select
 
 
 from covid_data
+--where rn=1
 
-limit 100
+--limit 100
