@@ -10,7 +10,8 @@
 with covid_data as
 (
   select *,
-  from {{ source('staging', 'covid_table') }}
+    --row_number() over(partition by location, date) as rn
+  from {{ source('staging','covid_table') }}
 )
 
 
@@ -20,7 +21,7 @@ select
     -- identifiers
     cast(iso_code as string) as country_code,
     cast(continent as string) as continent,
-    cast(location as string) as  location,
+    cast(location as string) as country,
 
     --date
     cast(date as timestamp) as date,
@@ -34,7 +35,6 @@ select
     cast(hosp_patients as integer) as hosp_patients,
     cast(total_tests as integer) as total_tests,
     cast(new_tests as integer) as new_tests,
-    cast(total_vaccinations as integer) as total_vaccinations,
     cast(people_fully_vaccinated as integer) as people_fully_vaccinated,
     cast(median_age as float64) as median_age,
     cast(excess_mortality as float64) as excess_mortality,
@@ -43,7 +43,7 @@ select
     cast(extreme_poverty as float64) as extreme_poverty,
     cast(total_cases_per_million as float64) as total_cases_per_mio,
     cast(new_cases_per_million as float64) as new_cases_per_mio,
-    cast(total_deaths_per_million as float64) as total_deaths_per_million,
+    cast(total_deaths_per_million as float64) as total_deaths_per_mio,
     cast(new_deaths_per_million as float64) as new_deaths_per_mio,
     cast(icu_patients_per_million as float64) as icu_patients_per_mio,
     cast(hosp_patients_per_million as float64) as hosp_patients_per_mio,
@@ -59,5 +59,6 @@ select
 
 
 from covid_data
+--where rn=1
 
-limit 100
+--limit 100

@@ -7,3 +7,154 @@ sources:
 
     tables:
       - name: covid_table
+
+
+
+models:
+
+    - name: stg_covid_project
+      description: table with covid 19 data with the following carefully selected columns
+      columns:
+        - name: country_code
+          description: ISO 3166-1 alpha-3 – three-letter country codes. Note that OWID-defined regions (e.g. continents like 'Europe') contain prefix 'OWID_'.
+        - name: continent
+        - name: country
+          tests: 
+            - not_null:
+                config:
+                  severity: error
+                  error_if: ">1000"
+                  warn_if: ">10"  
+        - name: total_cases
+          description: Total confirmed cases of COVID-19. Counts can include probable cases, where reported.
+          tests: 
+            - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: new_cases
+          description: >
+            New confirmed cases of COVID-19. Counts can include probable cases, where reported. 
+            In rare cases where our source reports a negative daily change due to a data correction, we set this metric to NA.
+        - name: total_deaths
+          description: Total deaths attributed to COVID-19. Counts can include probable deaths, where reported.
+          tests: 
+            - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: new_deaths
+          description: >
+            New deaths attributed to COVID-19. Counts can include probable deaths, where reported. 
+            In rare cases where our source reports a negative daily change due to a data correction, we set this metric to NA.
+        - name: icu_patients
+          description: Number of COVID-19 patients in intensive care units (ICUs) on a given day
+        - name: hosp_patients
+          description: Number of COVID-19 patients in hospital on a given day
+        - name: total_tests
+          description: New tests for COVID-19 (only calculated for consecutive days)
+          tests: 
+            - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: new_tests
+          tests: 
+            - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: people_fully_vaccinated
+          description: Total number of people who received all doses prescribed by the initial vaccination protocol
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: median_age
+          description: Median age of the population, UN projection for 2020
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: "> 0"
+                severity: warn
+        - name: excess_mortality
+          description: >
+            Percentage difference between the reported number of weekly or monthly deaths in 2020–2021 
+            and the projected number of deaths for the same period based on previous years.
+        - name: extreme_poverty
+          description: Share of the population living in extreme poverty, most recent year available since 2010
+        - name: total_cases_per_mio
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: new_cases_per_mio
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: total_deaths_per_mio
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: new_deaths_per_mio
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: icu_patients_per_mio
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: hosp_patients_per_mio
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: total_tests_per_thousand
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: people_fully_vaccinated_per_hundred
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: hospital_beds_per_thousand
+          tests:
+          - dbt_utils.expression_is_true:
+                expression: ">= 0"
+                severity: warn
+        - name: reproduction_rate
+          description: Real-time estimate of the effective reproduction rate (R) of COVID-19
+        - name: positive_rate
+          description: The share of COVID-19 tests that are positive, given as a rolling 7-day average 
+          tests: 
+          - dbt_utils.expression_is_true:
+                expression: ">= 0" 
+                expression: "<= 1"
+                severity: warn
+        - name: human_development_index
+          description: >
+            A composite index measuring average achievement in three basic dimensions of human development—a long and healthy life, 
+            knowledge and a decent standard of living
+            Values for 2019
+          tests: 
+          - dbt_utils.expression_is_true:
+                expression: ">= 0" 
+                expression: "<= 1"
+                severity: warn
+
+
+
+    - name: stg_covid_ger
+      description: > 
+        table with covid 19 data with the same columns but only for germany with the following carefully selected columns
+        we will only test the country and continent column to make sure there were no errors
+        the rest is the same and would produce errors/warnings when building the model for the entire dataset
+      columns:
+        - name: continent
+        - name: country
+          tests:
+          - accepted_values:
+              name: only_germany_allowed
+              values: ['Germany']
+              severity: warn
