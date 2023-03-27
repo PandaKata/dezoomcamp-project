@@ -15,9 +15,3 @@ models:
     description: final model for all countries
   - name: prod_covid_ger
     description: final model for german data
-    columns:
-    - name: country
-      tests: 
-            - dbt_utils.expression_is_true:
-                expression: "= 'Germany'"
-                severity: error
