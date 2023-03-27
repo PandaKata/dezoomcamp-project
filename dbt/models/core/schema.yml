@@ -1,5 +1,15 @@
 version: 2
 
+
+sources:
+  - name: production
+    database: capstone-project-379718
+    schema: capstone_covid_data
+
+    tables:
+      - name: covid_table
+
+
 models:
   - name: prod_covid_project
     description: final model for all countries
