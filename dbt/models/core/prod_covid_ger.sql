@@ -9,7 +9,7 @@
 
 with covid_data as (
     select *, 
-    from {{ ref('stg_covid_project') }}
+    from {{ ref('stg_covid_ger') }}
     where (country = 'Germany') and (date is not null) 
 
 ) 
@@ -28,5 +28,3 @@ select
     covid_data.country
 
 from covid_data
-
-where country = 'Germany'
