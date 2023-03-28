@@ -5,6 +5,7 @@
       "data_type": "timestamp",
       "granularity": "day"
     }
+    
 )}}
 
 with covid_data as (
