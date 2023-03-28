@@ -3,14 +3,14 @@
     partition_by={
       "field": "date",
       "data_type": "timestamp",
-      "granularity": "week"
+      "granularity": "day"
     }
 )}}
 
 with covid_data as (
     select *, 
     from {{ ref('stg_covid_ger') }}
-    where (country = 'Germany') and (date is not null) 
+    where (location = 'Germany') and (date is not null) 
 
 ) 
 
@@ -25,6 +25,6 @@ select
     covid_data.excess_mortality as excess_mortality,
     covid_data.human_development_index as hdi,
     covid_data.continent,
-    covid_data.country
+    covid_data.location
 
 from covid_data

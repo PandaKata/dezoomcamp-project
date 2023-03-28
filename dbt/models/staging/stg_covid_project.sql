@@ -3,7 +3,7 @@
     partition_by={
       "field": "date",
       "data_type": "timestamp",
-      "granularity": "week"
+      "granularity": "day"
     }
 )}}
 
@@ -60,7 +60,7 @@ select
 
 from covid_data
 
-{% if var('is_test_run', default=true) %}
+{% if var('is_test_run', default=false) %}
 
   limit 100
 
