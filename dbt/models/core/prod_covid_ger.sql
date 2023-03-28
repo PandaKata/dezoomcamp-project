@@ -3,7 +3,7 @@
     partition_by={
       "field": "date",
       "data_type": "timestamp",
-      "granularity": "week"
+      "granularity": "day"
     }
 )}}
 
