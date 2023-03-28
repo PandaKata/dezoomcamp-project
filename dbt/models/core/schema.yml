@@ -13,5 +13,22 @@ sources:
 models:
   - name: prod_covid_project
     description: final model for all countries
+    columns:
+      - name: year
+      - name: month
+      - name: date
+        tests: 
+            - not_null:
+                severity: warn
+      - name: new_cases_per_mio
+      - name: new_deaths_per_mio
+      - name: people_fully_vaccinated_per_hundred
+      - name: extreme_poverty
+      - name: excess_mortality
+      - name: hdi
+      - name: continent
+      - name: country
+
+
   - name: prod_covid_ger
     description: final model for german data
