@@ -1,6 +1,6 @@
 {{ config(
     materialized='table'
-    }
+    
 )}}
 
 with covid_data as
