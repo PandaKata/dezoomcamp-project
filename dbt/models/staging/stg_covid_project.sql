@@ -25,7 +25,7 @@ select
     cast(location as string) as country,
 
     --date
-    cast(date as datetime) as date,
+    cast(date as timestamp) as date,
     
     -- absolute numbers
     cast(total_cases as integer) as total_cases,
