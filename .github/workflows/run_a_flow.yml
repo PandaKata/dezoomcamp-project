@@ -36,4 +36,9 @@ jobs:
         run: |
           prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}} 
           prefect cloud workspace set --workspace "${{secrets.PREFECT_WORKSPACE}}"
-      
+          
+      - name: Run the flow
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:/home/runner/work/prefect-getting-started/prefect-getting-started/"
+          python flows/${{ github.event.inputs.flow }}
+
