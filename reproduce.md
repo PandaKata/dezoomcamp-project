@@ -14,11 +14,12 @@
     - BigQuery Admin
     generate key & download to your local machine
 4. generate ssh key <br>
-    in terminal: `ssh-keygen -t rsa -f ~/.ssh/capstone -C <USER> -b 2048` <br>
+    in your local terminal: `ssh-keygen -t rsa -f ~/.ssh/capstone -C <USER> -b 2048` <br>
     cat out the public key: `cat .ssh/capstone.pub` <br>
     copy output, go to VM instance on Google Cloud & add ssh key under Metadata
-5. `git clone https://github.com/PandaKata/dezoomcamp-project.git`
-6. authenticate: create service account with storage admin & bigquery admin; save .json file to .credentials/<filename>.json:
+5. clone this repo:
+    `git clone https://github.com/PandaKata/dezoomcamp-project.git`
+7. authenticate: create service account with storage admin & bigquery admin; save .json file to .credentials/<filename>.json:
     <br>
     `GOOGLE_APPLICATION_CREDENTIALS=~/dezoomcamp-project/.credentials/service-covid.json`
     <br>
