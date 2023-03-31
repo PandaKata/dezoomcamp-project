@@ -108,11 +108,11 @@ type 'yes' when prompted
 2. once logged in, create a [workspace](https://app.prefect.cloud/workspaces/create) and an [API key](https://app.prefect.cloud/my/api-keys).
 3. add the previously created API key and the name of your workspace as repository secrets, as shown in this image:
 ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/prefect_github.png?raw=true)
+  &rarr; `PREFECT_API_KEY` is the API key you created before (should start with pnu_); `PREFECT_WORKSPACE` is a combination of your account/workspace e.g. pandakata/dezoomcamp 
     
     
-    
-    
-    
+## create blocks in prefect, screenshots, names, service account!!!!!
+## change cars in prefect flows
     
     
 # test
