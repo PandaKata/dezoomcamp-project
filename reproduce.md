@@ -101,6 +101,15 @@ terraform init
 terraform apply
 ```
 type 'yes' when prompted
+8. create virtual environment
+   <br>
+   run
+   <br>
+```
+conda create -n capstone python=3.10
+conda activate capstone
+pip install -r requirements.txt
+```
     
     
 ### Setup Prefect
@@ -113,43 +122,13 @@ type 'yes' when prompted
     
 ## create blocks in prefect, screenshots, names, service account!!!!!
 ## change cars in prefect flows
+## register blocks???
     
     
 # test
     
 
-6. create service account: <br>
-    IAM & Admin &rarr; service accounts &rarr; create service account <br>
-    apply the following roles:
-    - Viewer
-    - Storage Admin 
-    - Storage Object Admin 
-    - BigQuery Admin
-    generate key & download to your local machine
-    <br>
-    save .json file to .credentials/<filename>.json:
-    <br>
-    `GOOGLE_APPLICATION_CREDENTIALS=~/dezoomcamp-project/.credentials/service-covid.json`
-    <br>
-    `gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS`
-5. clone this repo: <br>
-    `git clone https://github.com/PandaKata/dezoomcamp-project.git`
-7. authenticate: create service account with storage admin & bigquery admin; save .json file to .credentials/<filename>.json:
-    <br>
-    `GOOGLE_APPLICATION_CREDENTIALS=~/dezoomcamp-project/.credentials/service-covid.json`
-    <br>
-    `gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS`
-7. do terraform: replace values: table name, bucket id, project id, got to terraform directory, run:
-    <br>
-    `terraform init`
-    <br>
-    `terraform plan`
-    <br> 
-    enter project ID when prompted
-    <br> 
-    enter yes when prompted 
-    <br> 
-    &rarr; check in console to see if bucket & table are there
+
 8. create virtual env with requirements `conda create -n capstone python=3.10` `pip install -r requirements.txt`
 9. prefect cloud login OR local alternative
 10. register block with credentials
