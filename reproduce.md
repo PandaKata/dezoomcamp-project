@@ -100,7 +100,8 @@ sudo apt-get update && sudo apt-get install terraform
 terraform init
 terraform apply
 ```
-type 'yes' when prompted
+- type 'yes' when prompted
+  
 8. create virtual environment
    <br>
    run
