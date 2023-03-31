@@ -13,4 +13,4 @@ Google Looker studio - for visualizations.
 
 
 
-![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/flow.png?raw=true)
+![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/pipeline.png?raw=true)
