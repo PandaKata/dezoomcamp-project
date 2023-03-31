@@ -92,7 +92,7 @@ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(l
 sudo apt-get update && sudo apt-get install terraform
 ```
 - `cd` to the terraform directory
-- change the variables.tf file with your corresponding variables:
+- change the variables.tf file with your corresponding variables, I would recommend to leave the name of the dataset, table and bucket as they are; otherwise you need to change them in the prefect flows and dbt:
 ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/terraform_var.png?raw=true)
 - run
   <br>
@@ -122,7 +122,7 @@ pip install -r requirements.txt
     
     
 ## create blocks in prefect, screenshots, names, service account!!!!!
-## change cars in prefect flows
+## change vars in prefect flows
 ## register blocks???
     
     
