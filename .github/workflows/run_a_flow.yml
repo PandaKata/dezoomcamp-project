@@ -11,7 +11,7 @@ on:
         description: Flow to run
         required: true
         type: choice
-        options: ['web_to_gcs.py']
+        options: ['web_to_gcs.py', 'gcs_to_bq.py']
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -37,8 +37,3 @@ jobs:
           prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}} 
           prefect cloud workspace set --workspace "${{secrets.PREFECT_WORKSPACE}}"
       
-          
-      - name: Load data into GCS
-
-        run: |
-          python flows/web_to_gcs.py
