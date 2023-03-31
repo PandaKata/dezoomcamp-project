@@ -124,6 +124,7 @@ pip install -r requirements.txt
 ## create blocks in prefect, screenshots, names, service account!!!!!
 ## change vars in prefect flows
 ## register blocks???
+## screenshots of the flow runs!
     
     
 # test
