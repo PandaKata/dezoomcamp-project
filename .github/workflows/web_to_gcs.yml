@@ -1,7 +1,7 @@
 name: web_to_gcs
 on:
   schedule:
-    - cron: '* 4 * * *'
+    - cron: '0 4 * * *'
 
 jobs:
   run:
