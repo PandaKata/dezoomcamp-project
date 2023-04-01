@@ -162,4 +162,4 @@ pip install -r requirements.txt
   
 
 ### Visualization in Looker Studio
-1. Go to [Looker Studio](https://lookerstudio.google.com/)
+go to [Looker Studio](https://lookerstudio.google.com/) &rarr; create &rarr; BigQuery &rarr; choose you project, dataset & table
