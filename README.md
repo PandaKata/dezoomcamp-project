@@ -34,9 +34,14 @@ Since the data by Our World in Data is updated daily early in the morning, my go
 - images: used images in the repo
 - terraform: terraform files
 
-## Visualizations
-
-The visualizations [can be found here](https://lookerstudio.google.com/reporting/6f2401c9-9622-4bc6-8b37-e68a8c0879cc).
 
 ## Try it yourself
 If you want to reproduce my pipeline and play around with the data, you can find the [detailed instructions here](https://github.com/PandaKata/dezoomcamp-project/blob/main/reproduce.md).
+
+## Visualizations
+
+The interactive dashboards [can be found here](https://lookerstudio.google.com/reporting/6f2401c9-9622-4bc6-8b37-e68a8c0879cc).
+![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/dashboard1.png?raw=true)
+![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/dashboard2.png?raw=true)
+
+
