@@ -15,3 +15,6 @@ Google Looker studio - for visualizations.
 
 
 ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/pipeline.png?raw=true)
+
+
+[Link to Dashboard](https://lookerstudio.google.com/reporting/6f2401c9-9622-4bc6-8b37-e68a8c0879cc)
