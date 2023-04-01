@@ -1,9 +1,10 @@
 # Analysis of Covid Data around the world 
 
+
+
 ## Used Technologies 
 For this project I decided to use the following tools:
 
-Docker - to proceed to the containerization of other technologies; <br>
 Prefect - for orchestration; <br>
 Terraform - as Infrastructure-as-Code (IaC) tool; <br>
 Google Cloud Storage (GCS) - for storage as Data Lake; <br>
