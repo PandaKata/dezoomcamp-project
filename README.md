@@ -8,13 +8,13 @@ With this project I aim to built an end-to-end orchestrated data pipeline. My da
 ## Used Technologies 
 For this project I decided to use the following tools:
 
-Prefect & GitHub Actions - for orchestration; <br>
-Terraform - as Infrastructure-as-Code (IaC) tool; <br>
-Google Compute Engine - as a virtual machine; <br>
-Google Cloud Storage (GCS) - for storage as Data Lake; <br>
-Google BigQuery - for the project Data Warehouse; <br>
-dbt - for the transformation of raw data in refined data; <br>
-Google Looker studio - for visualizations.
+- Prefect & GitHub Actions - for orchestration; <br>
+- Terraform - as Infrastructure-as-Code (IaC) tool; <br>
+- Google Compute Engine - as a virtual machine; <br>
+- Google Cloud Storage (GCS) - for storage as Data Lake; <br>
+- Google BigQuery - for the project Data Warehouse; <br>
+- dbt - for the transformation of raw data in refined data; <br>
+- Google Looker studio - for visualizations.
 
 ## Problem Description
 
