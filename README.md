@@ -32,7 +32,8 @@ The data set is a very detailed time series. I decided to look at the developmen
 - terraform: terraform files
 
 ## Visualizations
-[Link to Dashboard](https://lookerstudio.google.com/reporting/6f2401c9-9622-4bc6-8b37-e68a8c0879cc)
 
-##Try it yourself
+The visualizations [can be found here](https://lookerstudio.google.com/reporting/6f2401c9-9622-4bc6-8b37-e68a8c0879cc).
+
+## Try it yourself
 If you want to reproduce my pipeline and play around with the data, you can find the [detailed instructions here](https://github.com/PandaKata/dezoomcamp-project/blob/main/reproduce.md).
