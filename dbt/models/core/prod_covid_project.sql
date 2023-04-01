@@ -29,5 +29,5 @@ select
     covid_data.human_development_index as hdi,
     covid_data.continent,
     covid_data.country
-
+    
 from covid_data
