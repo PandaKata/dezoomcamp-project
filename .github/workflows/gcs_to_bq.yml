@@ -1,7 +1,7 @@
 name: gcs_to_bq
 on:
   schedule:
-    - cron: '10 7 * * *'
+    - cron: '15 4 * * *'
 
 jobs:
   run:
