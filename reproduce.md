@@ -127,6 +127,7 @@ pip install -r requirements.txt
     2. name the block 'capstone-bucket' if you don't want to make any changes in the prefect flows; fill in the other fields with bucket name 
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/gcs_bucket_and_creds.png?raw=true)
     3. create a credentials block within in that window where you paste the content of the .json file for your service account (I created a separate service account for prefect); name the block 'capstone-gcp-creds' if you don't want to change anything
+5. your orchestrated workflows should look like this in prefect:
      
   
 ### Setup dbt
