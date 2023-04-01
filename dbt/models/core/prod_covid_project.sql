@@ -28,7 +28,6 @@ select
     covid_data.excess_mortality,
     covid_data.human_development_index as hdi,
     covid_data.continent,
-    covid_data.country,
-    covid_data.total_cases
-
+    covid_data.country
+    
 from covid_data
