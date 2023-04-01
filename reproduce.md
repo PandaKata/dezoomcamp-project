@@ -119,24 +119,47 @@ pip install -r requirements.txt
 3. add the previously created API key and the name of your workspace as repository secrets, as shown in this image:
 ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/prefect_github.png?raw=true)
   &rarr; `PREFECT_API_KEY` is the API key you created before (should start with pnu_); `PREFECT_WORKSPACE` is a combination of your account/workspace e.g. pandakata/dezoomcamp 
-    
-    
-## create blocks in prefect, screenshots, names, service account!!!!!
-## change vars in prefect flows
-## register blocks???
-## screenshots of the flow runs!
-    
-    
-# test
-    
+4. create blocks in prefect cloud
+  - run `prefect block register -m prefect_gcp` in the terminal in VSCode in your virtual env
+  - go to your workspace in prefect cloud
+    1. add gcs bucket block
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/gcs_bucket.png?raw=true)
+    2. name the block 'capstone-bucket' if you don't want to make any changes in the prefect flows; fill in the other fields with bucket name 
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/gcs_bucket_and_creds.png?raw=true)
+    3. create a credentials block within in that window where you paste the content of the .json file for your service account (I created a separate service account for prefect); name the block 'capstone-gcp-creds' if you don't want to change anything
+     
+  
+### Setup dbt
 
+1. create a [dbt cloud account](https://www.getdbt.com/signup/) 
+2. create a new project and connect it to your [warehouse](https://docs.getdbt.com/docs/cloud/manage-access/set-up-bigquery-oauth); more detailed instruction can be found [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md).
+3. fork [my repo](https://github.com/PandaKata/dezoomcamp-project) if you haven't done it yet.
+4. setup a repo:
+  Choose git clone and paste the ssh link from your github fork
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/git_dbt.png?raw=true)
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/dbt_git.png?raw=true)
+5. copy key
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/api_dbt.png?raw=true)
+6. in the forked repo go to Settings and then Deploy Keys &rarr; paste the key; enable write access
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/deploy_key.png?raw=true)
+7. go to your project settings and change the subdirectory to 'dbt'
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/dbt_sub.png?raw=true)
+8. go back to dbt &rarr; develop &rarr; there you should see the repo; navigate to the dbt directory
+9. run `dbt deps` in the console, so your environment is ready
+10. navigate to models &rarr; staging &rarr; schema.yml and replace variables with your own where necessary:
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/schema_yaml.png?raw=true)
+11. you may also need to go into the .sql files and update the names to match what is in Big Query
+12. repeat for core directory
 
-8. create virtual env with requirements `conda create -n capstone python=3.10` `pip install -r requirements.txt`
-9. prefect cloud login OR local alternative
-10. register block with credentials
-11. `prefect block register -m prefect_gcp` add GCS Bucket
-12. `prefect deployment build src/web_to_gcs.py:etl_web_to_gcs -n 'covid_data_to_bucket' --cron "0 6 * * *" -a`
-13. `prefect deployment build gcs_to_bq.py:etl_gcs_to_bq -n 'covid_data_to_dwh' --cron "15 6 * * *" -a` # creates deployment yaml file and schedule it via CRON daily at 6.15 CET 
-14. `prefect agent start -q 'default'`
-15. create dbt cloud account & setup dbt cloud with BQ: https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md
-16. 
+### Run dbt in production
+1. go to environments in dbt cloud and create environment 
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/create_env.png?raw=true)
+2. go to jobs in dbt cloud and create new job with the following parameters; this will schedule the dbt transformations daily at 6.45 CET
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/job_1.png?raw=true)
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/jobs_2.png?raw=true)
+  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/jobs_3.png?raw=true)
+ 
+  
+
+### Visualization in Looker Studio
+1. Go to [Looker Studio](https://lookerstudio.google.com/)
