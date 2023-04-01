@@ -29,4 +29,4 @@ jobs:
       - name: Load Data from GCS to BQ
         
         run: |
-          python flows/gcs_to_gq.py
+          python flows/gcs_to_bq.py
