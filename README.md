@@ -1,4 +1,4 @@
-# Analysis of Covid Data around the world 
+# Analysis of Covid Data around the world :earth_africa:
 
 Since the beginning of 2020, the coronavirus has changed the world. With scary news also came the doubters. That makes it all the more important to understand the data. So for my capstone project for the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) by [DataTalks Club](https://datatalks.club/), I chose to analyze a global corona dataset.
 <br>
