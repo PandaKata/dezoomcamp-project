@@ -168,7 +168,9 @@ go to [Looker Studio](https://lookerstudio.google.com/) &rarr; create &rarr; Big
 <br>
 Your flows / jobs should look like this, when everything is running correctly:
 <br>
+  
 ### GitHub Actions:
+
 ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/github_flows.png?raw=true)
 
 ### Prefect Cloud:
