@@ -1,18 +1,18 @@
 # Reproduce (Test it yourself)
 
-### Setup project
+## Setup project
 
 Create new project in Google Cloud Console &rarr; switch to that newly created project
 
 
-### Setup VM
+## Setup VM
 Create instance with the following specifications:
 - region: closest to you with low co2
 - Machine Type: e2-standard-4 (4 vCPU, 16 GB Memory)
 - Change boot disk: Ubuntu 20.04 LTS, Size: 30 GB
 - you might have to enable the compute engine API if you haven't created a VM on this account before
 
-### Setup SSH to VM
+## Setup SSH to VM
 
 - in your local terminal: `ssh-keygen -t rsa -f ~/.ssh/<DESIREDNAMEOFYOURKEY> -C <DESIREDUSERNAMEONVM> -b 2048` <br>
 - cat out the public key: `cat .ssh/capstone.pub` <br>
@@ -29,14 +29,14 @@ IdentityFile <path to your private key> e.g.  ~/.ssh/privatekey
   <br>
     &rarr; you are now connected to your VM
 
-### Connecting and setting up VSCode
+## Connecting and setting up VSCode
 
 - install VS Code locally if you don't have it already 
 - search Extensions for SSH and install Remote-SSH from Microsoft
 - in the lower left hand corner click the green icon to Open a Remote Window
 - choose "Connect to Host..." and either choose your ssh connection or type in Hostname
 
-### Create Service Account
+## Create Service Account
     
 - go to IAM & Admin &rarr; Service Accounts on Google Cloud Console
 - create service account
@@ -49,7 +49,7 @@ IdentityFile <path to your private key> e.g.  ~/.ssh/privatekey
 - choose: Add Key & &rarr; Create new key &rarr; JSON &rarr; Create 
 - key will be downloaded onto local computer 
     
-### Setup your VM
+## Setup your VM
 
 1. Open terminal in VS Code and run:
    <br>
@@ -113,7 +113,7 @@ pip install -r requirements.txt
 ```
     
     
-### Setup Prefect
+## Setup Prefect
 1. go to [Prefect Cloud](https://www.prefect.io/cloud/) and create a free account
 2. once logged in, create a [workspace](https://app.prefect.cloud/workspaces/create) and an [API key](https://app.prefect.cloud/my/api-keys).
 3. add the previously created API key and the name of your workspace as repository secrets, as shown in this image:
@@ -130,7 +130,7 @@ pip install -r requirements.txt
 5. your orchestrated workflows should look like this in prefect:
      
   
-### Setup dbt
+## Setup dbt
 
 1. create a [dbt cloud account](https://www.getdbt.com/signup/) 
 2. create a new project and connect it to your [warehouse](https://docs.getdbt.com/docs/cloud/manage-access/set-up-bigquery-oauth); more detailed instruction can be found [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md).
@@ -152,7 +152,7 @@ pip install -r requirements.txt
 11. you may also need to go into the .sql files and update the names to match what is in Big Query
 12. repeat for core directory
 
-### Run dbt in production
+## Run dbt in production
 1. go to environments in dbt cloud and create environment 
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/create_env.png?raw=true)
 2. go to jobs in dbt cloud and create new job with the following parameters; this will schedule the dbt transformations daily at 6.45 CET
@@ -160,7 +160,19 @@ pip install -r requirements.txt
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/jobs_2.png?raw=true)
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/jobs_3.png?raw=true)
  
-  
 
-### Visualization in Looker Studio
+## Visualization in Looker Studio
 go to [Looker Studio](https://lookerstudio.google.com/) &rarr; create &rarr; BigQuery &rarr; choose you project, dataset & table
+
+<br>
+<br>
+Your flows / jobs should look like this, when everything is running correctly:
+<br>
+### GitHub Actions:
+![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/github_flows.png?raw=true)
+
+### Prefect Cloud:
+![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/prefect_flows.png?raw=true)
+
+### Dbt Cloud:
+![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/dbt_run.png?raw=true)
