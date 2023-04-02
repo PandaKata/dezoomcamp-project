@@ -2,7 +2,7 @@
 
 ## Setup project
 
-Create new project in Google Cloud Console &rarr; switch to that newly created project
+Create new project in [Google Cloud Console](https://console.cloud.google.com/) &rarr; switch to that newly created project
 
 
 ## Setup VM
@@ -25,7 +25,7 @@ HostName <external IP>
 User <DESIREDUSERNAMEONVM you specified in ssh-keygen command>
 IdentityFile <path to your private key> e.g.  ~/.ssh/privatekey
 ```
-- go to your local terminal and type ssh <hostname to use when connecting>
+- go to your local terminal and type `ssh <hostname to use when connecting>`
   <br>
     &rarr; you are now connected to your VM
 
@@ -33,8 +33,9 @@ IdentityFile <path to your private key> e.g.  ~/.ssh/privatekey
 
 - install VS Code locally if you don't have it already 
 - search Extensions for SSH and install Remote-SSH from Microsoft
+- install Python extension if you need to
 - in the lower left hand corner click the green icon to Open a Remote Window
-- choose "Connect to Host..." and either choose your ssh connection or type in Hostname
+- choose "Connect to Host..." and either choose your ssh connection or type in the name your chose for Host in your config
 
 ## Create Service Account
     
@@ -118,34 +119,33 @@ pip install -r requirements.txt
 2. once logged in, create a [workspace](https://app.prefect.cloud/workspaces/create) and an [API key](https://app.prefect.cloud/my/api-keys).
 3. add the previously created API key and the name of your workspace as repository secrets, as shown in this image:
 ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/prefect_github.png?raw=true)
-  &rarr; `PREFECT_API_KEY` is the API key you created before (should start with pnu_); `PREFECT_WORKSPACE` is a combination of your account/workspace e.g. pandakata/dezoomcamp 
+  &rarr; `PREFECT_API_KEY` is the API key you created before (should start with pnu_); <br>
+  &rarr; `PREFECT_WORKSPACE` is a combination of your account/workspace e.g. pandakata/dezoomcamp 
 4. create blocks in prefect cloud
-  - run `prefect block register -m prefect_gcp` in the terminal in VSCode in your virtual env
-  - go to your workspace in prefect cloud
-    1. add gcs bucket block
-  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/gcs_bucket.png?raw=true)
-    2. name the block 'capstone-bucket' if you don't want to make any changes in the prefect flows; fill in the other fields with bucket name 
-  ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/gcs_bucket_and_creds.png?raw=true)
-    3. create a credentials block within in that window where you paste the content of the .json file for your service account (I created a separate service account for prefect); name the block 'capstone-gcp-creds' if you don't want to change anything
-5. your orchestrated workflows should look like this in prefect:
-     
+    - run `prefect block register -m prefect_gcp` in the terminal in VSCode in your virtual env
+    - go to your workspace in prefect cloud
+      1. add gcs bucket block
+      ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/gcs_bucket.png?raw=true)
+      2. name the block 'capstone-bucket' if you don't want to make any changes in the prefect flows; fill in the other fields with bucket name 
+      ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/gcs_bucket_and_creds.png?raw=true)
+    3. create a credentials block within in that window where you paste the content of the .json file for your service account (I created a separate service account for prefect, but you can use the one from before); name the block 'capstone-gcp-creds' if you don't want to change anything     
   
 ## Setup dbt
 
 1. create a [dbt cloud account](https://www.getdbt.com/signup/) 
 2. create a new project and connect it to your [warehouse](https://docs.getdbt.com/docs/cloud/manage-access/set-up-bigquery-oauth); more detailed instruction can be found [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md).
 3. fork [my repo](https://github.com/PandaKata/dezoomcamp-project) if you haven't done it yet.
-4. setup a repo:
-  Choose git clone and paste the ssh link from your github fork
+4. setup a repo in dbt cloud:
+  - Choose git clone and paste the ssh link from your github fork
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/git_dbt.png?raw=true)
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/dbt_git.png?raw=true)
-5. copy key
+  - copy key
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/api_dbt.png?raw=true)
-6. in the forked repo go to Settings and then Deploy Keys &rarr; paste the key; enable write access
+  - in the forked repo go to Settings and then Deploy Keys &rarr; paste the key; enable write access
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/deploy_key.png?raw=true)
-7. go to your project settings and change the subdirectory to 'dbt'
+  - go to your project settings in dbt cloud and change the subdirectory to 'dbt'
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/dbt_sub.png?raw=true)
-8. go back to dbt &rarr; develop &rarr; there you should see the repo; navigate to the dbt directory
+8. go "Develop" on dbt cloud &rarr; there you should see the repo; navigate to the dbt directory
 9. run `dbt deps` in the console, so your environment is ready
 10. navigate to models &rarr; staging &rarr; schema.yml and replace variables with your own where necessary:
   ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/schema_yaml.png?raw=true)
@@ -162,13 +162,12 @@ pip install -r requirements.txt
  
 
 ## Visualization in Looker Studio
-go to [Looker Studio](https://lookerstudio.google.com/) &rarr; create &rarr; BigQuery &rarr; choose you project, dataset & table
+go to [Looker Studio](https://lookerstudio.google.com/) &rarr; create &rarr; BigQuery &rarr; choose your project, dataset & transformed table
 
-<br>
-<br>
+## Flows
 Your flows / jobs should look like this, when everything is running correctly:
-<br>
-  
+
+
 ### GitHub Actions:
 
 ![alt text](https://github.com/PandaKata/dezoomcamp-project/blob/main/images/github_flows.png?raw=true)
