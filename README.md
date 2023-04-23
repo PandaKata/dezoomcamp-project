@@ -4,6 +4,9 @@ Since the beginning of 2020, the coronavirus has changed the world. With scary n
 <br>
 <br>
 With this project I aim to built an end-to-end orchestrated data pipeline. My dataset is publicly available and provided by [Our World in Data](https://github.com/owid/covid-19-data). 
+<br>
+<br>
+Disclaimer: Since my trial period on Google Cloud has now ended, I can no longer use all the features. That's why my dashboard has not been updated since April 21.
 
 ## Used Technologies 
 For this project I decided to use the following tools:
